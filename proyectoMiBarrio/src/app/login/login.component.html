@@ -1,1 +1,23 @@
-<p>login works!</p>
+<div>
+  <div class="center">
+    <h1 class="text-dark">Inicio de sesión</h1>
+    <form method="post">
+      <div class="txt_field">
+        <input type="text" required>
+        <span></span>
+        <label>Usuario</label>
+      </div>
+      <div class="txt_field">
+        <input type="password" required>
+        <span></span>
+        <label>Contraseña</label>
+      </div>
+
+      <button class="input"><a [routerLink]="['/MenuUsuario']" [routerLinkActive]="['active']" class="nav-link">Ingresar</a></button>
+
+      <div class="signup_link">
+        Crea una cuenta ! <a [routerLink]="['/Signup']" [routerLinkActive]="['active']" class="nav-link">Registrarse</a>
+      </div>
+    </form>
+  </div>
+</div>
