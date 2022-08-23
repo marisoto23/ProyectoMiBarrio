@@ -20,9 +20,6 @@
             <a class="nav-link" [routerLink]="['/ConfigVisitante']" [routerLinkActive]="['active']">Configuración Cuenta</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Eliminar Cuenta</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="#">Cerrar Sesión</a>
           </li>
         </ul>
@@ -36,6 +33,9 @@
   <br>
   <p class="fs-1 fw-bold text-center">Foros</p>
   <p class="fs-4 text-center">A continuación, por medio de tarjetas podra ingresar al foro que guste comentar :)</p>
+  <div class="d-flex flex-row-reverse">
+    <a class="btn btn-secondary h-75 btn-lg" [routerLink]="['/RegistroForo']" [routerLinkActive]="['active']">Crear Foro</a>
+  </div>
   <div class="card text-dark" style="width: 18rem;">
     <div class="card-body" >
       <h5 class="card-title">Card title</h5>
@@ -47,7 +47,7 @@
       <li class="list-group-item">A third item</li>
     </ul>
     <div class="card-body center">
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <a class="btn btn-primary" [routerLink]="['/Foro']" [routerLinkActive]="['active']">Mirar Foro</a>
     </div>
   </div>
 </div>

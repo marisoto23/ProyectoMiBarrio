@@ -11,6 +11,8 @@ import { ConfigVisitanteComponent } from "./config-visitante/config-visitante.co
 import { BlogTicoComponent } from "./blog-tico/blog-tico.component";
 import { ForoBlogTicoComponent } from "./foro-blog-tico/foro-blog-tico.component";
 import { ContactenosComponent } from "./contactenos/contactenos.component";
+import { RegistroForoComponent } from "./registro-foro/registro-foro.component";
+import { ForoComponent } from "./foro/foro.component";
 
 //3. Array de Rutas
 const appRoutes: Routes = [
@@ -22,6 +24,8 @@ const appRoutes: Routes = [
   {path:'BlogTico', component:BlogTicoComponent},
   {path:'ForoBlogTico', component:ForoBlogTicoComponent},
   {path:'Contactenos', component:ContactenosComponent},
+  {path:'RegistroForo', component:RegistroForoComponent},
+  {path:'Foro', component:ForoComponent},
   {path:'*',component:ErrorComponent}
 ]
 
