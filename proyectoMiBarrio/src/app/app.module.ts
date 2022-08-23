@@ -13,6 +13,9 @@ import { MenuVisitanteComponent } from './menu-visitante/menu-visitante.componen
 import { MenuDuenioComponent } from './menu-duenio/menu-duenio.component';
 import { ForoVisitanteComponent } from './foro-visitante/foro-visitante.component';
 import { ConfigVisitanteComponent } from './config-visitante/config-visitante.component';
+import { BlogTicoComponent } from './blog-tico/blog-tico.component';
+import { ForoBlogTicoComponent } from './foro-blog-tico/foro-blog-tico.component';
+import { ContactenosComponent } from './contactenos/contactenos.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { ConfigVisitanteComponent } from './config-visitante/config-visitante.co
     MenuVisitanteComponent,
     MenuDuenioComponent,
     ForoVisitanteComponent,
-    ConfigVisitanteComponent
+    ConfigVisitanteComponent,
+    BlogTicoComponent,
+    ForoBlogTicoComponent,
+    ContactenosComponent
   ],
   imports: [
     HttpClientModule,

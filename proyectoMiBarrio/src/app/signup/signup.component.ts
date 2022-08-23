@@ -10,7 +10,7 @@ import { UsuarioService } from '../services/usuario.service';
 })
 export class SignupComponent implements OnInit {
   listaUsuarios:Array<Usuario> = Array<Usuario>()
-  public usuario:Usuario = new Usuario("","","",0,"",0);
+  public usuario:Usuario = new Usuario("","","",0,"");
 
   users = [
     {id: 1, name: "Visitante"},
@@ -32,7 +32,7 @@ export class SignupComponent implements OnInit {
       email : this.usuario.email,
       telefono : this.usuario.telefono,
       password : this.usuario.password,
-      tipoUsuario : this.usuario.tipoUsuario,
+      //tipoUsuario : this.usuario.tipoUsuario,
     })
   }
 }

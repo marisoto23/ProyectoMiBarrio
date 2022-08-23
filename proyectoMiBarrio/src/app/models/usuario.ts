@@ -5,6 +5,6 @@ export class Usuario {
     public email: string,
     public telefono : number,
     public password: string,
-    public tipoUsuario:number
+    //public tipoUsuario:number
   ){}
 }
