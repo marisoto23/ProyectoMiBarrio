@@ -8,6 +8,6 @@ var router = express.Router();
 //CARGA DE LAS RUTAS
 //router.get('/', EstudianteController.home)
 router.post('/Registro', UsuarioController.signupUsuario)
-router.get('/Ingreso', UsuarioController.loginUsuario)
+router.post('/Ingreso', UsuarioController.loginUsuario)
 
 module.exports = router;

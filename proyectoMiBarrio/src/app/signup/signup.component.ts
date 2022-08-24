@@ -12,12 +12,6 @@ export class SignupComponent implements OnInit {
   listaUsuarios:Array<Usuario> = Array<Usuario>()
   public usuario:Usuario = new Usuario("","","",0,"");
 
-  users = [
-    {id: 1, name: "Visitante"},
-    {id: 2, name: "Dueño de restaurante"}
-  ];
-  selectedValue = null;
-
   constructor(public user: UsuarioService) {}
 
   ngOnInit(): void {
