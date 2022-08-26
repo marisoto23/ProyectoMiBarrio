@@ -6,7 +6,10 @@ var bodyParser = require('body-parser');
 var app = express();
 
 //CARGAR LAS RUTAS DEL API
-var usuario_routes = require('./routes/usuario')
+var usuario_routes = require('./routes/usuario');
+var restaurante_routes = require('./routes/restaurante');
+var blogTico_routes = require('./routes/blog-tico');
+var comentarioBlog_routes = require('./routes/comentario-blog');
 
 //MIDDLEWARES
 //Corre antes que el API y así lo convierte en JSON
@@ -22,7 +25,10 @@ app.use((req, res, next) => {
     next();
 });
 //RUTAS
-app.use('/api', usuario_routes)
+app.use('/Usuario', usuario_routes) //antes aqui decía API c:
+app.use('/Restaurante', restaurante_routes) 
+app.use('/BlogTico', blogTico_routes) 
+app.use('/ComentarioBlog', comentarioBlog_routes) 
 
 //EXPORTAR
 module.exports = app;

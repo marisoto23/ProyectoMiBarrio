@@ -36,18 +36,21 @@
   <div class="d-flex flex-row-reverse">
     <a class="btn btn-secondary h-75 btn-lg" [routerLink]="['/RegistroForo']" [routerLinkActive]="['active']">Crear Foro</a>
   </div>
-  <div class="card text-dark" style="width: 18rem;">
-    <div class="card-body" >
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">An item</li>
-      <li class="list-group-item">A second item</li>
-      <li class="list-group-item">A third item</li>
-    </ul>
-    <div class="card-body center">
-      <a class="btn btn-primary" [routerLink]="['/Foro']" [routerLinkActive]="['active']">Mirar Foro</a>
+  <br>
+  <div class="d-flex flex-row justify-content-around">
+    <div class="card text-dark" style="width: 18rem;" *ngFor="let restaurante of restaurantes">
+      <div class="card-body" >
+        <h5 class="card-title">Foro: {{restaurante.nombreRestaurante}}</h5>
+        <!--p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p-->
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Categoría: {{restaurante.categoria}} </li>
+        <li class="list-group-item">Pagina web: {{restaurante.paginaWeb}} </li>
+        <li class="list-group-item">Red Social: {{restaurante.redSocial}} </li>
+      </ul>
+      <div class="card-body center">
+        <a class="btn btn-primary" [routerLink]="['/Foro']" [routerLinkActive]="['active']">Mirar Foro</a>
+      </div>
     </div>
   </div>
 </div>

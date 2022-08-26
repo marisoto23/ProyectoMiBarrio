@@ -19,7 +19,7 @@ export class SignupComponent implements OnInit {
 
   agregarUsuario(){
     console.log(this.usuario)
-    this.user.postUsuario('http://localhost:3700/api/Registro',
+    this.user.postUsuario('http://localhost:3700/Usuario/Registro',
     {
       nombre : this.usuario.nombre,
       nombreUsuario : this.usuario.nombreUsuario,
