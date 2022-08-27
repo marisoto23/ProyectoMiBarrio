@@ -18,6 +18,8 @@ import { ForoBlogTicoComponent } from './foro-blog-tico/foro-blog-tico.component
 import { ContactenosComponent } from './contactenos/contactenos.component';
 import { RegistroForoComponent } from './registro-foro/registro-foro.component';
 import { ForoComponent } from './foro/foro.component';
+import { ConfigForoComponent } from './config-foro/config-foro.component';
+import { ConfigBlogTicoComponent } from './config-blog-tico/config-blog-tico.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { ForoComponent } from './foro/foro.component';
     ForoBlogTicoComponent,
     ContactenosComponent,
     RegistroForoComponent,
-    ForoComponent
+    ForoComponent,
+    ConfigForoComponent,
+    ConfigBlogTicoComponent
   ],
   imports: [
     HttpClientModule,
