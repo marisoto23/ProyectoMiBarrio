@@ -6,6 +6,7 @@ import { Observable } from "rxjs";
 
 @Injectable()
 export class UsuarioService {
+  url = 'http://localhost:3700/Usuario/';
   public listaUsuarios: Array<Usuario> = Array<Usuario>();
   public usuario: Usuario = new Usuario("","", "", "", 0, "");
 
@@ -31,5 +32,11 @@ export class UsuarioService {
 
   public get UsuarioNombre(){
     return localStorage.setItem('nombreUsuario', this.usuario.nombreUsuario)
+  }
+   eliminarUsuario(id: string):Observable<any>{
+    return this.http.delete(this.url + id)
+  }
+  editarUsuario(id:string, usuario: Usuario):Observable<any>{
+    return this.http.put(this.url + id, usuario)
   }
 }
