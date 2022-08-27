@@ -1,7 +1,7 @@
 <div>
   <div class="center">
     <h1 class="text-dark">Inicio de sesión</h1>
-    <form #frmLogin="ngForm" class="login-container">
+    <form #frmLogin="ngForm" method="post" class="login-container">
       <div class="txt_field">
         <input type="text" name="nombreUsuario" id="nombreUsuario" class="form-control"  [(ngModel)]="usuario.nombreUsuario" required>
         <span></span>
@@ -12,7 +12,7 @@
         <span></span>
         <label>Contraseña</label>
       </div>
-      <button class="input"><a class="nav-link" [routerLink]="['/MenuVisitante']" [routerLinkActive]="['active']">Ingresar</a></button>
+      <button class="input" (click)="ingresarUsuario()"><a class="nav-link" >Ingresar</a></button>
       <div class="signup_link">
         Crea una cuenta ! <a [routerLink]="['/Signup']" [routerLinkActive]="['active']" class="nav-link">Registrarse</a>
       </div>

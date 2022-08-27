@@ -10,7 +10,7 @@ import { UsuarioService } from '../services/usuario.service';
 })
 export class SignupComponent implements OnInit {
   listaUsuarios:Array<Usuario> = Array<Usuario>()
-  public usuario:Usuario = new Usuario("","","",0,"");
+  public usuario:Usuario = new Usuario("","","","",0,"");
 
   constructor(public user: UsuarioService) {}
 

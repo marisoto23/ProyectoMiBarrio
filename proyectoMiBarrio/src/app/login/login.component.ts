@@ -10,20 +10,37 @@ import { Router } from '@angular/router';
   providers: [UsuarioService]
 })
 export class LoginComponent implements OnInit {
-  public usuario:Usuario = new Usuario("","","",0,"");
 
-  constructor(public user: UsuarioService, private router: Router) { }
+  public usuarios: Usuario[];
+  public usuario: Usuario;
+
+  constructor(public user: UsuarioService, private router: Router) {
+    this.usuarios = [];
+    this.usuario = new Usuario ('','','','',0,'');
+  }
 
   ngOnInit() {
   }
 
   ingresarUsuario(){
-    this.user.Login('http://localhost:3700/api/Ingreso',
+    console.log(this.usuario)
+    this.user.loginUsuario('http://localhost:3700/Usuario/Ingreso',
     {
+      nombre : this.usuario.nombre,
       nombreUsuario : this.usuario.nombreUsuario,
+      email : this.usuario.email,
+      telefono : this.usuario.telefono,
       password : this.usuario.password,
       //tipoUsuario : this.usuario.tipoUsuario,
     })
-
   }
+
+  public get UsuarioNombre(){
+    return localStorage.setItem('nombreUsuario', this.usuario.nombreUsuario)
+  }
+
+  public get UsuarioPassword(){
+    return localStorage.getItem('password')
+  }
+
 }

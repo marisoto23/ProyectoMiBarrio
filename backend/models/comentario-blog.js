@@ -6,8 +6,8 @@ var Usuario = require('../models/usuario')
 
 var ComentarioBlogSchema = Schema({
     textoBlog:String,
-    idUsuarioBlog: { type: Schema.ObjectId, ref: 'BlogTIco' },
-    idForoBlog: { type: Schema.ObjectId, ref: 'BlogTIco' }
+    idUsuarioBlog: { type: Schema.ObjectId, ref: 'BlogTico' },
+    idForoBlog: { type: Schema.ObjectId, ref: 'BlogTico' }
 });
 
 module.exports = mongoose.model('ComentarioBlog', ComentarioBlogSchema);

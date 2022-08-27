@@ -10,6 +10,7 @@ var usuario_routes = require('./routes/usuario');
 var restaurante_routes = require('./routes/restaurante');
 var blogTico_routes = require('./routes/blog-tico');
 var comentarioBlog_routes = require('./routes/comentario-blog');
+var comentarioForo_routes = require('./routes/comentario-foro');
 
 //MIDDLEWARES
 //Corre antes que el API y así lo convierte en JSON
@@ -29,6 +30,7 @@ app.use('/Usuario', usuario_routes) //antes aqui decía API c:
 app.use('/Restaurante', restaurante_routes) 
 app.use('/BlogTico', blogTico_routes) 
 app.use('/ComentarioBlog', comentarioBlog_routes) 
+app.use('/ComentarioForo', comentarioForo_routes) 
 
 //EXPORTAR
 module.exports = app;

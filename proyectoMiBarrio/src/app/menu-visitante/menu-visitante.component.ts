@@ -18,7 +18,7 @@ export class MenuVisitanteComponent implements OnInit {
   ) {
     this.url = Global.url;
     this.restaurantes = [];
-    this.restaurante = new Restaurante('','','','','', '');
+    this.restaurante = new Restaurante('','','','','','', '');
    }
 
   ngOnInit(): void {

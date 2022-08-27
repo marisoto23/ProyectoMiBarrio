@@ -4,14 +4,11 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var Usuario = require('../models/usuario')
 
-var RestauranteSchema = Schema({
-    nombreRestaurante:String,
-    categoria:String,
-    ubicacion:String,
-    paginaWeb:String,
-    redSocial:String,
-    autor: { type: Schema.ObjectId, ref: 'Usuario' }
+var ComentarioForoSchema = Schema({
+    textoForo:String,
+    idUsuarioForo: { type: Schema.ObjectId, ref: 'Restaurante' },
+    idForo: { type: Schema.ObjectId, ref: 'Restaurante' }
 });
 
-module.exports = mongoose.model('Restaurante',RestauranteSchema);
-//Restaurante --> Guardar Doc
+module.exports = mongoose.model('ComentarioForo', ComentarioForoSchema);
+//BlogTico --> Guardar Doc

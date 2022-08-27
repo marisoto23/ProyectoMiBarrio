@@ -17,40 +17,50 @@ var controller = {
         usuario.password = params.password;
         //usuario.tipoUsuario = params.tipoUsuario;
 
-        usuario.save((err, usuarioStored)=>{
-            if(err) return res.status(500).send({message: 'Error al guardar documento'});
+        usuario.save((err, usuarioStored) => {
+            if (err) return res.status(500).send({ message: 'Error al guardar documento' });
 
-            if(!usuarioStored) return res.status(404).send({message: 'No se pudo guardar'});
+            if (!usuarioStored) return res.status(404).send({ message: 'No se pudo guardar' });
 
-            return res.status(200).send({usuario, usuarioStored});
-            
+            return res.status(200).send({ usuario, usuarioStored });
+
         });
     },
     loginUsuario: (req, res) => {
-        let body = req.body;
-        
-        Usuario.findOne({nombreUsuario: body.nombreUsuario}, (err, usuarioDB) =>{
+        var userData = {
+            _id: req.body._id,
+            nombreUsuarioId: req.body.nombreUsuario,
+            passwordId: req.body.password,
+        }
+
+        Usuario.findOne({ nombreUsuarioId: userData.nombreUsuarioId }, (err, usuarioDB) => {
             if (err) return res.status(500).send('Error de servidor');
-    
-            if(!usuarioDB){ //Verifica si el usuario existe
-                res.status(400).send({message: 'Usuario o contraseña incorectos'}); //Usuario no existe
-            } 
-            if(!bcrypt.compareSync(body.password, usuarioDB.password)){
-                res.status(400).send({message: 'Usuario o contraseña incorectos'}); //Usuario no existe
+
+            if (!usuarioDB) { //Verifica si el usuario existe
+                res.status(404).send({ message: 'Usuario o contraseña incorrectos' }); //Usuario no existe
+            }
+            if (bcrypt.compareSync(userData.passwordId, usuarioDB.password)) {
+                res.status(404).send({ message: 'Usuario o contraseña incorrectos' }); //Usuario no existe
             }
             //Genera token de autenticacion
-            let token = jwt.sign({
-                usuario: usuarioDB,
-            }, process.env.SEED_AUTHENTICATION, {
-                expiresIn: process.env.CADUCIDAD_TOKEN
-            })
-            res.json({
-                ok: true,
-                usuario: usuarioDB,
-                token,
-            })
+            return res.status(200).send({ userData, usuarioDB });
         })
-    }
+    },
+    obtenerUsuario: function(req, res){
+		var usuarioId = req.params.id;
+		if(usuarioId == null) return res.status(404).send({message: 'El usuario no existe.'});
+
+		Usuario.findById(usuarioId, (err, usuario) => {
+
+			if(err) return res.status(500).send({message: 'Error al devolver los datos.'});
+
+			if(!usuario) return res.status(404).send({message: 'El usuario no existe.'});
+
+			return res.status(200).send({
+				usuario
+			});
+		});
+	},
 }
 
 module.exports = controller; //Para poder usarlo en el proyecto
