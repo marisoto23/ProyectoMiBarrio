@@ -9,6 +9,8 @@ var router = express.Router();
 //router.get('/', EstudianteController.home)
 router.post('/Registro', UsuarioController.signupUsuario)
 router.post('/Ingreso', UsuarioController.loginUsuario)
-router.get('/Usuario/:id', UsuarioController.obtenerUsuario)
+router.get('/Usuario:id', UsuarioController.obtenerUsuario)
+router.put('/ConfigVisitante/:id', UsuarioController.modificarUsuario)
+router.delete('/ConfigVisitante/:id', UsuarioController.borrarUsuario)
 
 module.exports = router;
