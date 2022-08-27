@@ -28,22 +28,21 @@ var controller = {
     },
     loginUsuario: (req, res) => {
         var userData = {
-            _id: req.body._id,
             nombreUsuarioId: req.body.nombreUsuario,
             passwordId: req.body.password,
         }
 
-        Usuario.findOne({ nombreUsuarioId: userData.nombreUsuarioId }, (err, usuarioDB) => {
+        Usuario.findOne({ nombreUsuarioId: userData.nombreUsuarioId }, (err, usuario) => {
             if (err) return res.status(500).send('Error de servidor');
 
-            if (!usuarioDB) { //Verifica si el usuario existe
+            if (!usuario) { //Verifica si el usuario existe
                 res.status(404).send({ message: 'Usuario o contraseña incorrectos' }); //Usuario no existe
             }
-            if (bcrypt.compareSync(userData.passwordId, usuarioDB.password)) {
+            if (bcrypt.compareSync(userData.passwordId, usuario.password)) {
                 res.status(404).send({ message: 'Usuario o contraseña incorrectos' }); //Usuario no existe
             }
             //Genera token de autenticacion
-            return res.status(200).send({ userData, usuarioDB });
+            return res.status(200).send({ userData, usuario });
         })
     },
     obtenerUsuario: function(req, res){

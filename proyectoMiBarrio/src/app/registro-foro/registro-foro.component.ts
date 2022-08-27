@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Restaurante } from '../models/restaurante';
 import { RestauranteService } from '../services/restaurante.service';
 import { UsuarioService } from '../services/usuario.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro-foro',
@@ -11,9 +12,11 @@ import { UsuarioService } from '../services/usuario.service';
 })
 export class RegistroForoComponent implements OnInit {
   public listaRestaurantes: Array<Restaurante> = Array<Restaurante>();
-  public restaurante: Restaurante = new Restaurante("","","", "", "", "", "");
+  public restaurante: Restaurante = new Restaurante("","","", "", "", "", "63054156ebea11f36604877b");
 
-  constructor(public _restauranteService: RestauranteService, public _usuarioService:UsuarioService) { }
+  constructor(public _restauranteService: RestauranteService,
+    public _usuarioService:UsuarioService,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -27,8 +30,10 @@ export class RegistroForoComponent implements OnInit {
       ubicacion: this.restaurante.ubicacion,
       paginaWeb: this.restaurante.paginaWeb,
       redSocial: this.restaurante.redSocial,
-      autor: localStorage.getItem('nombreUsuario')
+      autor: this.restaurante.autor
       //tipoUsuario : this.usuario.tipoUsuario,
     })
+    console.log('Se ingreso corectamente')
+    this.router.navigateByUrl('/MenuVisitante');
   }
 }

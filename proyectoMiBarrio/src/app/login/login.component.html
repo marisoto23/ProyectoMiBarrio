@@ -1,18 +1,18 @@
 <div>
   <div class="center">
     <h1 class="text-dark">Inicio de sesión</h1>
-    <form #frmLogin="ngForm" method="post" class="login-container">
+    <form #frmLogin="ngForm" method="post" class="login-container" (ngSubmit)="onLogin(frmLogin)">
       <div class="txt_field">
-        <input type="text" name="nombreUsuario" id="nombreUsuario" class="form-control"  [(ngModel)]="usuario.nombreUsuario" required>
+        <input type="text" name="nombreUsuario" id="nombreUsuario"  class="form-control" [(ngModel)]="usuario.nombreUsuario"  required>
         <span></span>
         <label>Usuario</label>
       </div>
       <div class="txt_field">
-        <input type="password" name="password" id="password" class="form-control" [(ngModel)]="usuario.password" required>
+        <input type="password" name="password" id="password" c class="form-control" [(ngModel)]="usuario.password" required>
         <span></span>
         <label>Contraseña</label>
       </div>
-      <button class="input" (click)="ingresarUsuario()"><a class="nav-link" >Ingresar</a></button>
+      <button class="input" type="submit" value="Send"><a class="nav-link" >Ingresar</a></button>
       <div class="signup_link">
         Crea una cuenta ! <a [routerLink]="['/Signup']" [routerLinkActive]="['active']" class="nav-link">Registrarse</a>
       </div>

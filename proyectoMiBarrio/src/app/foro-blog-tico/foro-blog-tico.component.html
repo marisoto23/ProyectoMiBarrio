@@ -1,37 +1,28 @@
 <div class="body">
   <div class="container">
-    <div class="title">¿Cómo será tu foro?</div>
+    <div class="title">Registro del Blog</div>
     <div class="content">
       <form action="">
         <div class="user-details">
           <div class="input-box">
-            <span class="details">Nombre</span>
-            <input type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre" class="form-control" required>
+            <span class="details">Titulo del Blog:</span>
+            <input type="text" name="tituloBlog" id="tituloBlog" placeholder="Ingrese su nombre de su blog" class="form-control" [(ngModel)]="blogTico.tituloBlog" required>
           </div>
           <div class="input-box">
-            <span class="details">Usuario</span>
-            <input type="text" name="nombreUsuario" id="nombreUsuario" placeholder="Ingrese su usuario" class="form-control" required>
+            <span class="details">Descripción:</span>
+            <input type="text" name="descripcionBlog" id="descripcionBlog" placeholder="Ingrese su descripcion" class="form-control" [(ngModel)]="blogTico.descripcionBlog" required>
           </div>
           <div class="input-box">
-            <span class="details">Correo electrónico</span>
-            <input type="text" name="email" id="email" placeholder="Ingrese su correo electrónico" class="form-control" required>
+            <span class="details">Explicación:</span>
+            <input type="text" name="explicacionBlog" id="explicacionBlog" placeholder="Ingrese su explicación" class="form-control" [(ngModel)]="blogTico.explicacionBlog" required>
           </div>
-          <div class="input-box">
-            <span class="details">Numero de teléfono</span>
-            <input type="text" name="telefono" id="telefono" placeholder="Ingrese su numero" class="form-control" required>
-          </div>
-          <div class="input-box">
-            <span class="details">Contraseña</span>
-            <input type="text" name="password" id="password" placeholder="Ingrese su contraseña" class="form-control" required>
-          </div>
-          <div class="input-box">
-            <span class="details">Confirmar contraseña</span>
-            <input type="text" placeholder="Confirme su contraseña" required>
-          </div>
-
         </div>
         <div class="centrar-btn">
-          <button type="button" class="button btn btn-outline-success">Registrar</button>
+          <button type="button" class="button btn btn-outline-success" (click)="agregarBlogTico()">Registrar</button>
+        </div>
+        <br>
+        <div class="centrar-btn">
+          <button type="button" class="button btn btn-outline-danger"><a [routerLink]="['/BlogTico']" [routerLinkActive]="['active']">Regresar</a></button>
         </div>
       </form>
     </div>

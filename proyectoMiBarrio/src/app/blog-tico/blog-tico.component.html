@@ -32,22 +32,19 @@
   <div class="d-flex flex-row-reverse">
     <a class="btn btn-secondary h-75 btn-lg" [routerLink]="['/ForoBlogTico']" [routerLinkActive]="['active']">Crear Foro</a>
   </div>
-
- 
-
-
-  <div class="card text-dark" style="width: 18rem;">
-    <div class="card-body" >
-      <h5 class="card-title">Comida Picante</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">An item</li>
-      <li class="list-group-item">A second item</li>
-      <li class="list-group-item">A third item</li>
-    </ul>
-    <div class="card-body center">
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+  <div class="d-flex flex-row justify-content-around">
+    <div class="card text-dark" style="width: 18rem;" *ngFor="let blogTico of blogTicos">
+      <div class="card-body" >
+        <h5 class="card-title">Titulo: {{blogTico.tituloBlog}}</h5>
+        <!--p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p-->
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Descripción: {{blogTico.descripcionBlog}} </li>
+        <li class="list-group-item">Explicación: {{blogTico.explicacionBlog}} </li>
+      </ul>
+      <div class="card-body center">
+        <a class="btn btn-primary" [routerLink]="['/Foro']" [routerLinkActive]="['active']">Mirar Foro</a>
+      </div>
     </div>
   </div>
 </div>
