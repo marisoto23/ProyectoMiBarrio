@@ -32,4 +32,16 @@ export class BlogTicoService{
 
     return this.http.get(this.url+'BlogTico', {headers:headers});
   }
+
+  updateBlogTico(url:string, nuevo: {}){
+    this.http.put<BlogTico>(url, nuevo).subscribe(data => {
+      this.listaBlogTico = [this.blogTico];
+    })
+  }
+
+  deleteBlogTico():Observable<any>{
+    let headers =  new HttpHeaders().set('Content-Type', 'application/json');
+
+    return this.http.delete(this.url+'BlogTico/', {headers:headers});
+  }
 }

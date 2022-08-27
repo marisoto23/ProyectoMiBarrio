@@ -37,4 +37,22 @@ export class RestauranteService{
 
     return this.http.get(this.url+'Restaurante/6307d821849be0cf88330a27', {headers:headers});
   }
+
+  updateRestaurante(url:string, nuevo: {}){
+    this.http.put<Restaurante>(url, nuevo).subscribe(data => {
+      this.listaRestaurantes = [this.restaurante];
+    })
+  }
+
+  deleteRestaurante():Observable<any>{
+    let headers =  new HttpHeaders().set('Content-Type', 'application/json');
+
+    return this.http.delete(this.url+'Restaurante/', {headers:headers});
+  }
+
+  obtenerIdRestaurante():Observable<any>{
+    let headers =  new HttpHeaders().set('Content-Type', 'application/json');
+
+    return this.http.get(this.url+'Restaurante/', {headers:headers});
+  }
 }

@@ -1,6 +1,6 @@
 export class Restaurante{
   constructor( //Forma mas sencilla
-  public idRestaurante:String,
+  public idRestaurante:string,
   public nombreRestaurante:string,
   public categoria:string,
   public ubicacion:string,

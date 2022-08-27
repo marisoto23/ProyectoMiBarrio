@@ -1,1 +1,57 @@
-<p>config-blog-tico works!</p>
+<div>
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand">Menu de opciones</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/MenuVisitante']" [routerLinkActive]="['active']">Menu Principal</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/BlogTico']" [routerLinkActive]="['active']">Blog Tico</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/Contactenos']" [routerLinkActive]="['active']">Contactenos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/ConfigVisitante']" [routerLinkActive]="['active']">Configuración Cuenta</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Cerrar Sesión</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Buscar</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <h1>Configuración de Foros Creados</h1>
+<div class="col-8">
+  <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Titulo del Blog</th>
+          <th scope="col">Descripción</th>
+          <th scope="col">Explicación</th>
+          <th class="text-center" scope="col"></th>
+          <th class="text-center" scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let blogTico of blogTicos; let indice = index">
+          <th scope="row">{{indice+1}}</th>
+          <td><input type="text" placeholder="{{blogTico.tituloBlog}}"></td>
+          <td><input type="text" placeholder="{{blogTico.descripcionBlog}}"></td>
+          <td><input type="text" placeholder="{{blogTico.explicacionBlog}}"></td>
+          <td><button class="btn btn-warning" (click)="actualizarBlogTico()">Actualizar</button></td>
+          <td><button class="btn btn-danger">Borrar</button></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
