@@ -61,6 +61,34 @@ var controller = {
 			});
 		});
 	},
+    modificarUsuario: function(req, res){
+		var UsuarioId = req.params.id;
+		var update = req.body;
+
+		Usuario.findByIdAndUpdate(UsuarioId, update, {new:true}, (err, usuarioUpdated) => {
+			if(err) return res.status(500).send({message: 'Error al actualizar'});
+
+			if(!usuarioUpdated) return res.status(404).send({message: 'No existe el usuario para actualizarlo'});
+
+			return res.status(200).send({
+				usuario: usuarioUpdated
+			});
+		});
+
+	},
+    borrarUsuario: function(req, res){
+		var usuarioId = req.params.id;
+
+		Usuario.findByIdAndRemove(usuarioId, (err, usuarioRemoved) => {
+			if(err) return res.status(500).send({message: 'No se ha podido borrar el usuario'});
+
+			if(!usuarioRemoved) return res.status(404).send({message: "No se puede eliminar el usuario."});
+
+			return res.status(200).send({
+				usuario: usuarioRemoved
+			});
+		});
+	}
 }
 
 module.exports = controller; //Para poder usarlo en el proyecto
